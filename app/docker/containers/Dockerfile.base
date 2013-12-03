@@ -1,0 +1,16 @@
+FROM        ubuntu:12.04
+MAINTAINER  Andreas Tiefenthaler
+RUN         apt-get update
+RUN apt-get update
+RUN apt-get install -y make
+RUN apt-get install -y gcc
+RUN apt-get install -y libxslt-dev libxml2-dev
+RUN apt-get install -y wget git-core
+RUN apt-get -y install  ruby1.9.1 ruby1.9.1-dev
+RUN apt-get -y install build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev
+RUN ruby --version
+RUN git clone https://github.com/pxlpnk/docker.git /srv/docker
+RUN gem install bundler 
+RUN bundle install --gemfile=/srv/docker/app/Gemfile
+RUN rm -rf /srv/docker/app/.env
+ENV BUNDLE_GEMFILE /srv/docker/app/Gemfile

@@ -1,0 +1,3 @@
+FROM base-app
+
+ENTRYPOINT foreman start worker -d /srv/docker/app

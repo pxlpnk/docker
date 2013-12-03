@@ -1,0 +1,2 @@
+FROM       base-app
+ENTRYPOINT foreman start web -d /srv/docker/app
